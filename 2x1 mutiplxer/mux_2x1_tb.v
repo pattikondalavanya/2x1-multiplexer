@@ -1,0 +1,1 @@
+`timescale 1ns/1ps module mux_2x1_tb; reg I0, I1, S; wire Y; mux_2x1 uut ( .I0(I0), .I1(I1), .S(S), .Y(Y) ); initial begin $display("Time S | Y"); $monitor("%0t %b | %b", $time, S, Y); // Set input values I0 = 0; I1 = 1; // Test select = 0 S = 0; #10; // Test select = 1 S = 1; #10; // Change inputs I0 = 1; I1 = 0; // Test again S = 0; #10; S = 1; #10; $finish; end endmodule
